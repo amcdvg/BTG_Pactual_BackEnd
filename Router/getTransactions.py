@@ -13,7 +13,7 @@ appgetTransationbtg = APIRouter()
 # consultar todas las transacciones
 @appgetTransationbtg.get("/getTransactions/")
 async def getTransations():
-    #try:
+    try:
         Transactions = []
         transactionsTable = connection("Transactions")
         # Realiza la operación de scan con paginación
@@ -42,6 +42,6 @@ async def getTransations():
                     "data": Transactions
                 }
             )
-    #except Exception as e:
+    except Exception as e:
         # Manejar cualquier error inesperado
-    #    raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")

@@ -5,7 +5,7 @@ from botocore.exceptions import BotoCoreError, ClientError
 
 # Función Conexión a DynamoDB
 def connection(tableName):
-    try:
+    #try:
         # Cargar las variables del archivo .env
         load_dotenv()
 
@@ -23,9 +23,9 @@ def connection(tableName):
         # Validar si la tabla existe en DynamoDB (opcional)
         table.load()  # Esto lanzará un error si la tabla no existe
         return table
-    except (BotoCoreError, ClientError) as e:
+    #except (BotoCoreError, ClientError) as e:
         # Retorna el mensaje de error relacionado con la conexión a DynamoDB
-        return {"table": None, "error": f"Error connecting to DynamoDB: {str(e)}"}
-    except Exception as e:
+    #    return {"table": None, "error": f"Error connecting to DynamoDB: {str(e)}"}
+    #except Exception as e:
         # Retorna otros errores inesperados
-        return {"table": None, "error": f"An unexpected error occurred: {str(e)}"}
+    #    return {"table": None, "error": f"An unexpected error occurred: {str(e)}"}
