@@ -10,9 +10,12 @@ def connection(tableName):
         load_dotenv()
 
         # Acceder a las variables del .env para la conexión de la base de datos
+        
         awsAccessKeyId = os.getenv("AWSACCESSKEYID")
         awsSecretAccessKey = os.getenv("AWSSECRETACCESSKEY")
         awsRegion = os.getenv("AWSREGION")
+        print(awsAccessKeyId)
+        print(awsSecretAccessKey)
         # Conexión con AWS
         dynamodb = boto3.resource("dynamodb",
                             aws_access_key_id=awsAccessKeyId,
