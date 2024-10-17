@@ -14,12 +14,11 @@ def connection(tableName):
         awsAccessKeyId = os.getenv("AWSACCESSKEYID")
         awsSecretAccessKey = os.getenv("AWSSECRETACCESSKEY")
         awsRegion = os.getenv("AWSREGION")
-        print(awsAccessKeyId)
-        print(awsSecretAccessKey)
         # Conexión con AWS
         dynamodb = boto3.resource("dynamodb",
                             aws_access_key_id=awsAccessKeyId,
-                            aws_secret_access_key=awsSecretAccessKey)
+                            aws_secret_access_key=awsSecretAccessKey,
+                            region_name=awsRegion)
         
         # Obtener la tabla correspondiente de DynamoDB
         table = dynamodb.Table(tableName)
