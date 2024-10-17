@@ -76,7 +76,7 @@ class CoreMailClient:
 
 
 
-def sendEmail(name, notificationType, message):
+def sendEmail(name, notificationType, message, email):
     monthSpanish = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
     dateString = f"{datetime.now().day} de {monthSpanish[datetime.now().month - 1]} de {datetime.now().year}"
 
@@ -109,7 +109,7 @@ def sendEmail(name, notificationType, message):
         port=587,
         sender_email="morenocordobaalexander00@gmail.com",
         password="odpfegjjitppqeir",
-        receiver_email=["alexander.moreno@utp.edu.co"],
+        receiver_email=[email],
         subject="Notificación de BTG Pactual",
         message=renderedMessage,  # Mensaje renderizado
         from_name="Btg Pactual | Notificación"

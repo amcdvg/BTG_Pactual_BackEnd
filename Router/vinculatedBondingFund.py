@@ -111,7 +111,7 @@ async def vinculatedBodingFund(Account: BondingFund, email:str, fund:str):
         if Account.notificationPreferences == "email":
             # Enviar correo de notificación
             message = f"Haz creado un nuevo fondo de inversión {nameFund} N° {FundNumberUnique}"
-            sendEmail(userConsult["fullName"], f'Creación de Fondo de Inversión {nameFund}', message)
+            sendEmail(userConsult["fullName"], f'Creación de Fondo de Inversión {nameFund}', message, userConsult["email"])
         else:
             # Enviar msm de notificación
             message = f"¡Hola {client}! btg Pactual te informa que haz creado un nuevo fondo de inversión {nameFund} N° {FundNumberUnique}"
