@@ -30,13 +30,15 @@ async def getBalance():
         
         # Convierte Decimal a float
         Balance =  convertDecimalFloat(Balancess)
-        
+        print(Balance)
+        Balance1 = Balance[0]
+        print(Balance1)
         # Acceder a la tabla User para adquirir el id
         usersTable = connection("Users")
         # Obtener los datos del usuario
         responseUser = usersTable.query(
-                IndexName='EmailIndex',  # Nombre del índice secundario
-                KeyConditionExpression=Key('email').eq(Balance['userId'])
+                IndexName='idIndex',  # Nombre del índice secundario
+                KeyConditionExpression=Key('id').eq(Balance1['userId'])
             )
         # Obtener usuario
         user = responseUser.get('Items')
@@ -46,8 +48,8 @@ async def getBalance():
             "name":userConsult['fullName'],
             "email":userConsult['email'],
             "phoneNumbeer":userConsult['phoneNumber'],
-            "Balance":Balance["amount"],
-            "IdBalance":Balance["id"]
+            "Balance":Balance1["amount"],
+            "IdBalance":Balance1["id"]
             
         }
         
