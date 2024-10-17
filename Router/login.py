@@ -20,7 +20,7 @@ pwdContext = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # Acceder a la tabla Users de DynamoDB
 usersTable = connection("Users")
-tokensTable = connection('InvalidTokens')  # Tabla para almacenar tokens invalidados
+##tokensTable = connection('InvalidTokens')  # Tabla para almacenar tokens invalidados
 
 # Función para crear un token
 def createAccessToken(email: str):
