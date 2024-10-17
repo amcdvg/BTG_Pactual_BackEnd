@@ -8,6 +8,7 @@ from Router.vinculatedBondingFund import appFundInvesting
 from Router.cancelBodingFund import appCancelFundInvesting
 from Router.getTransactions import appgetTransationbtg
 from Router.getFundViculate import appgetFundViculate
+from Router.getBalance import appBalance
 from fastapi.middleware.cors import CORSMiddleware
 # application.include_router(api_router)
 
@@ -33,6 +34,7 @@ def getApplication() -> FastAPI:
     application.include_router(appCancelFundInvesting)
     application.include_router(appgetTransationbtg)
     application.include_router(appgetFundViculate)
+    application.include_router(appBalance)
     
     origins = [
         '*',

@@ -11,7 +11,7 @@ from Tools.convertDecimalFloat import convertDecimalFloat
 appgetFundViculate = APIRouter()
 
 # consultar todas las transacciones
-@appgetFundViculate .get("/getFundViculate/")
+@appgetFundViculate.get("/getFundViculate/")
 async def getFunds():
     try:
         Transactions = []
